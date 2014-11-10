@@ -1,4 +1,4 @@
-class plateau:
+class Plateau:
     """
     The plateau class keeps track of the bounds of the plateau and can check
     whether a given coordinate is within those bounds.
@@ -34,7 +34,7 @@ class plateau:
 
 
 
-class cardinal:
+class Cardinal:
     """
     There's enough data associated with the four cardinal directions that I
     think they deserve their own class.
@@ -59,12 +59,12 @@ class cardinal:
 
 
 
-class rover:
+class Rover:
     cardinals = (
-        cardinal('N', 'y', True),
-        cardinal('E', 'x', True),
-        cardinal('S', 'y', False),
-        cardinal('W', 'x', False)
+        Cardinal('N', 'y', True),
+        Cardinal('E', 'x', True),
+        Cardinal('S', 'y', False),
+        Cardinal('W', 'x', False)
     )
 
 
@@ -243,11 +243,11 @@ def batch_gen(data, batch_size):
 def main():
     data = parse_file('input.dat')
 
-    the_plateau = plateau(data['plateau_data']['x_edge'], data['plateau_data']['x_edge'])
+    the_plateau = Plateau(data['plateau_data']['x_edge'], data['plateau_data']['x_edge'])
     rovers = []
     for rover_data in data['rovers_data']:
         rovers.append(
-            rover(rover_data['start_x'], rover_data['start_y'], rover_data['start_cardinal'], rover_data['steps'], the_plateau)
+            Rover(rover_data['start_x'], rover_data['start_y'], rover_data['start_cardinal'], rover_data['steps'], the_plateau)
         )
 
     for the_rover in rovers:
