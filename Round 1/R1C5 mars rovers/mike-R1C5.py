@@ -252,7 +252,9 @@ def main():
 
     for the_rover in rovers:
         the_rover.move()
-        print str(the_rover)
+        print str(the_rover.get_current_position())
+
+
 
 
 if __name__ == '__main__':
